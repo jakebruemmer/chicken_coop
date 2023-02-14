@@ -1,24 +1,5 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+A pet project that I made to manage backyard Chicken Coop's. This is the first Rails site I've attempted to build in ~2 years, and I haven't put a ton of time into it.
 
-Things you may want to cover:
-
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+It uses Tailwind, which is a bit new for me.
