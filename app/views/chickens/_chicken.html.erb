@@ -1,0 +1,41 @@
+<div class="mx-auto md:w-2/3 w-full flex">
+  <div class="mx-auto">
+    <div id="<%= dom_id chicken %>">
+      <p>
+        <% chicken.images.each do |image| %>
+          <% if image.representable? %>
+            <%= image_tag image.representation(resize_to_limit: [100, 100]) %>
+          <% else %>
+            <%= link_to rails_blob_path(image, disposition: "attachment") do %>
+              <%= image_tag "placeholder.png", alt: "Download file" %>
+            <% end %>
+          <% end %>
+        <% end %>
+      </p>
+      <p class="my-5">
+        <strong class="block font-medium mb-1">
+      <p class="my-5">
+        <strong class="block font-medium mb-1">Name:</strong>
+        <%= chicken.name %>
+      </p>
+
+      <p class="my-5">
+        <strong class="block font-medium mb-1">Breed:</strong>
+        <%= chicken.breed %>
+      </p>
+
+      <p class="my-5">
+        <strong class="block font-medium mb-1">Age:</strong> 
+        <%= chicken.age %>
+      </p>
+
+      <p class="my-5">
+        <strong class="block font-medium mb-1">Gender:</strong>
+        <%= chicken.gender %>
+      </p>
+
+      <%= link_to "Edit this chicken", edit_chicken_path(chicken) %>
+      <%= link_to "Report egg", new_chicken_egg_path(chicken) %>
+    </div>
+  </div>
+</div>

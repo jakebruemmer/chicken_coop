@@ -1,0 +1,26 @@
+<div class="mx-auto md:w-2/3 w-full">
+  <%= form_tag user_subscriptions_path(current_user), method: :post, data: {controller: "subscribe-form"}, class: "contents" do |f| %>
+    <% # This element inserts the Stripe publishable key so that we can grab it in the JavaScript %>
+    <div data-stripe-publishable-key="<%= ENV["STRIPE_PUBLISHABLE_KEY"] %>" data-target="subscribe-form.stripePublishableKey"></div>
+    <% # Here are the two different pricing options %>
+    <div class="subscription-options">
+    	<% monthly = SubscriptionPrice.monthly_399 %>
+      <label class="subscription-option">
+        <div class="option-name">Monthly Subscription  <%= Money.new(monthly.amount).format %></div>
+        <div class="option-price"> </div>
+      </label>
+    </div>
+    <% # Here's where we'll render the Stripe Elements credit card field, as well as a div %>
+    <% # for an error and a hidden input to store the credit card token. %>
+    <div data-target="subscribe-form.cardInput" class="block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-full"></div>
+    <div class="text-danger mb-4 d-none" data-target="subscribe-form.cardError"></div>
+    <%= hidden_field_tag :stripe_price_id, monthly.id %>
+    <%= hidden_field_tag 'card_token', params[:card_token], "data-target" => "subscribe-form.cardTokenInput" %>
+    <div class="actions">
+      <%= submit_tag "Subscribe", class: "rounded-lg py-3 px-5 bg-blue-600 text-white inline-block font-medium cursor-pointer", data: {target: "subscribe-form.submit"} %>
+    </div>
+  <% end %>
+  <p>
+    Cancel at any time on your Account Page
+  </p>
+</div>

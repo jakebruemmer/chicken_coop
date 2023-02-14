@@ -1,0 +1,15 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  color: MyString
+  laid: 2023-01-31
+  fertilized: false
+  weight_oz: 1.5
+  weight_mg: 1
+
+two:
+  color: MyString
+  laid: 2023-01-31
+  fertilized: false
+  weight_oz: 1.5
+  weight_mg: 1

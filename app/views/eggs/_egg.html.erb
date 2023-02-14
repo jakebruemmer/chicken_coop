@@ -1,0 +1,32 @@
+<div id="<%= dom_id egg %>">
+  <p class="my-5">
+    <strong class="block font-medium mb-1">Color:</strong>
+    <%= egg.color %>
+  </p>
+
+  <p class="my-5">
+    <strong class="block font-medium mb-1">Laid:</strong>
+    <%= egg.laid %>
+  </p>
+
+  <p class="my-5">
+    <strong class="block font-medium mb-1">Fertilized:</strong>
+    <%= egg.fertilized %>
+  </p>
+
+  <p class="my-5">
+    <strong class="block font-medium mb-1">Weight oz:</strong>
+    <%= egg.weight_oz %>
+  </p>
+
+  <p class="my-5">
+    <strong class="block font-medium mb-1">Weight mg:</strong>
+    <%= egg.weight_mg %>
+  </p>
+
+  <% if action_name != "show" %>
+    <%= link_to "Show this egg", chicken_egg_path(@chicken, egg), class: "rounded-lg py-3 px-5 bg-gray-100 inline-block font-medium" %>
+    <%= link_to 'Edit this egg', edit_chicken_egg_path(@chicken, egg), class: "rounded-lg py-3 ml-2 px-5 bg-gray-100 inline-block font-medium" %>
+    <hr class="mt-6">
+  <% end %>
+</div>

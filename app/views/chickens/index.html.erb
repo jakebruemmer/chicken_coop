@@ -1,0 +1,14 @@
+<div class="mx-auto md:w-2/3 w-full flex">
+  <div class="mx-auto">
+    <h1 class="font-bold text-4xl">Your chickens</h1>
+      <p style="color: green"><%= notice %></p>
+      <%= link_to "Add a chicken", new_chicken_path %>
+      <% @chickens.each do |chicken| %>
+        <%= render chicken %>
+        <p>
+          <%= link_to "Show this chicken", chicken %>
+          <!-- link to make an egg -->
+        </p>
+      <% end %>
+  </div>
+</div>

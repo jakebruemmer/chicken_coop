@@ -1,0 +1,33 @@
+<div class="mx-auto md:w-2/3 w-full flex">
+  <div class="mx-auto">
+    <p style="color: green"><%= notice %></p>
+
+    <%= render @chicken %>
+
+    <%= link_to "Previous month", @url_for_previous_view %>
+    <%= "#{Date::MONTHNAMES[@start_date.month]} #{@start_date.year}" %>
+    <%= link_to "Next month", @url_for_next_view %>
+
+    <div class="grid flex grid-cols-7 grid-rows-5 gap-px pt-px mt-1 bg-gray-200">
+      <% Date::DAYNAMES.each do |dayname| %>
+        <div><%= dayname.slice(0..2) %></div>
+      <% end %>
+
+      <% @days_of_month.each do |day_of_month| %>
+        <div class="bg-white grow w-full">
+          <span class="text-md">
+            <%= day_of_month.month %>/<%= day_of_month.day %>
+          </span>
+
+          <% if @eggs.where(laid: day_of_month) %>
+            <ul>
+            <% @eggs.where(laid: day_of_month).each do |egg| %>
+              <li><%= link_to "#{egg.color} egg", chicken_egg_path(@chicken, egg) %></li>
+            <% end %>
+            </ul>
+          <% end %>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,13 @@
+<div class="mx-auto md:w-2/3 w-full flex">
+  <div class="mx-auto">
+    <%= render @user %>
+    <div>
+      This is your Account Page.
+      <% if @user.has_active_subscription? %>
+        <%= link_to "Cancel your subscription", cancel_user_subscription_path(@user), data: { turbo_method: :delete } %>
+      <% else %>
+        <%= link_to "Become a paid account", new_user_subscription_path(@user) %>
+      <% end %>
+    </div> 
+  </div>
+</div>

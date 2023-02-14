@@ -1,0 +1,12 @@
+<div class="mx-auto md:w-2/3 w-full flex">
+  <div class="mx-auto">
+    <div id="coops">
+      <% @coops.each do |coop| %>
+        <%= render coop %>
+        <%= link_to "Show this coop", coop %>
+      <% end %>
+    </div>
+  <%= link_to "New coop", new_coop_path %>
+  </div>
+</div>
+
